@@ -1,0 +1,65 @@
+% ----------------------------------------------------
+% Main Tables
+% ----------------------------------------------------
+
+\renewcommand{\thetable}{\Roman{table}}
+\makeatletter
+
+\long\def\@maketblcaption#1#2{%
+  \vskip\abovecaptionskip
+  \begin{center}\small\bf#1\\[0.05in]\normalsize#2\\[0.2in]\end{center}
+  \vskip\belowcaptionskip}
+
+\renewcommand{\table}{\let\@makecaption\@maketblcaption\@float{table}}
+
+
+% --------------------------------------------------------------------
+\begin{table}
+\begin{center}
+\caption{\label{tbl:data} Calibration}
+
+\input{Tables/Calibration.tex}
+
+
+
+\end{center}
+
+\vskip0.3in
+
+{\footnotesize Table \ref{tbl:data} presents the quarterly calibration of the model.  }
+\end{table}
+
+\clearpage
+% --------------------------------------------------------------------
+%\begin{landscape}
+\begin{table}
+\begin{center}
+\caption{\label{tbl:Est1} Moments}
+\input{Tables/table_moments.tex}
+\end{center}
+%\end{landscape}
+
+\vskip0.3in
+
+{\footnotesize Table \ref{tbl:Est1} presents the moments generated from the simulation results. The capital depreciation rate is $6\%$.  All statistics are expressed in annual terms}
+\end{table}
+
+\clearpage
+
+
+% --------------------------------------------------------------------
+
+%%\begin{landscape}
+%\begin{table}
+%\begin{center}
+%\caption{\label{tbl:Est1} Moments}
+%\input{Tables/table_moments_2.tex}
+%\end{center}
+%%\end{landscape}
+%
+%\vskip0.3in
+%
+%{\footnotesize Table \ref{tbl:Est1} presents the moments generated from the simulation results. The capital depreciation rate is $4\%$.  All statistics are expressed in annual terms}
+%\end{table}
+%
+%\clearpage

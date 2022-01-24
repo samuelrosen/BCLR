@@ -1,0 +1,372 @@
+var EV ut da argp ev ca ypa yca ya kpa kca ipa Ic G Gprim T Tprim Gamp Gampprim Gamc Gamcprim m mc dc qp qc p ptil r rc dyp dyc dyvp dip igitot exr exr_G rf vol tyg titot gammav dy pqr wagep wagec iyp ia tca dtc np nc ntotal npnt ncnt sla LC dLCdHP dLCdHG wagepc w_var ome_p x_p pi_p v_p vtheta s kratio ds x dtfp gdp dgdp rpatent exrpatent D Vexp VexpK rrnd exrrnd Iyg Tax Vexpg VexpKg dpgdp pgdp dypa dya r_H exrr_H r_H_patent exrr_H_patent coeff1 coeff2 Er Errnd Erc Er_H_patent;
+
+varexo ea es;
+
+parameters theta deltac mu rho rhovol rhoar psi gamma alphap deltak xi cxi alpha1 alpha0 calpha1 calpha0 philev sigma sigmax alphac beta app tau w arc con_shocka con_shockx phi_growth pss ptilss ypss yss ipss kpss kcss rhoinv phi_growth_f theta_sla omega_barp omega_barc omega Np_ss Nc_ss theta_P theta_G phi_o_s Abar xi_p nu eta chi ome_p_bar phi_p gcctrl biga bigv bnca bncv rho_ig rho_nc Iygbar ncntbar rho_ivol rho_ia rho_nvol rho_na;
+
+theta=-0.045455;
+deltac=0.015;
+mu=0.000202;
+rho=0.98;
+rhovol=0.74;
+rhoar=0.99;
+psi=2;
+gamma=12;
+alphap=0.3;
+deltak=0.015;
+xi=5;
+cxi=5;
+alpha1=0.432893;
+alpha0=-0.003801;
+calpha1=1.003022;
+calpha0=-0.253801;
+philev=2;
+sigma=0.01575;
+sigmax=0.00315;
+alphac=0.3;
+beta=0.994962;
+app=0.005;
+tau=5;
+w=0.8;
+arc=-0.4322;
+con_shocka=-3.5;
+con_shockx=0;
+phi_growth=0;
+pss=3.553772;
+ptilss=4.530124;
+ypss=0.668832;
+yss=0.570851;
+ipss=-1.956888;
+kpss=2.22944;
+kcss=1.266495;
+rhoinv=0.1;
+phi_growth_f=0;
+theta_sla=0.1;
+omega_barp=0.372041;
+omega_barc=0.381767;
+omega=1.5;
+Np_ss=1;
+Nc_ss=1;
+theta_P=0;
+theta_G=0;
+phi_o_s=0;
+Abar=0.265403;
+xi_p=0.49;
+nu=0.578512;
+eta=0.8;
+chi=0.122;
+ome_p_bar=1.895007;
+phi_p=0.04;
+gcctrl=1;
+biga=-0.1;
+bigv=0.1;
+bnca=-0.1;
+bncv=0.1;
+rho_ig=0.9;
+rho_nc=0.9;
+Iygbar=0.03048;
+ncntbar=0.5;
+rho_ivol=0;
+rho_ia=0;
+rho_nvol=0;
+rho_na=0;
+
+
+model;
+// Equation 0
+0 = gammav - gamma;
+// Equation 1
+0 = EV - exp((ut(1) + da) * (1 - gammav));
+// Equation 2
+0 = exp(ev) - EV;
+// Equation 3
+0 = ut - (1 / (1 - 1 / psi)) * log((1 - beta) * exp((1 - 1 / psi) * tca) + beta * exp(ev * ((1 - 1 / psi) / (1 - gammav))));
+// Equation 4
+0 = exp(tca) - (exp(ca) - ((omega_barp * exp(sla)) * ((exp(np) + omega_barc * exp(nc)) ^ omega)) / omega);
+// Equation 5
+0 = dtc - (tca - tca(-1) + da(-1));
+// Equation 6
+0 = sla - (1 - theta_sla) * (mu + sla(-1) - da(-1));
+// Equation 7
+0 = LC - exp(sla) * (theta_P * ((exp(np) - Np_ss) ^ 2) + theta_G * ((exp(nc) - Nc_ss) ^ 2));
+// Equation 8
+0 = dLCdHP - (exp(np) - Np_ss) * (theta_P * (exp(sla) * 2));
+// Equation 9
+0 = dLCdHG - (exp(nc) - Nc_ss) * (theta_G * (exp(sla) * 2));
+// Equation 10
+0 = ntotal - log(exp(np) + exp(nc));
+// Equation 11
+0 = npnt - exp(np) / exp(ntotal);
+// Equation 12
+0 = ncnt - exp(nc) / exp(ntotal);
+// Equation 13
+0 = m - (log(beta) + dtc * (-(1) / psi) + (1 / psi - gammav) * (ut + da(-1) - (1 / (1 - gammav)) * ev(-1)));
+// Equation 14
+0 = mc - log((exp(m) * (exp(ya - yca) ^ (1 / tau))) / (exp(ya(-1) - yca(-1)) ^ (1 / tau)));
+// Equation 15
+0 = ypa - (log(Abar) + (1 - alphap) * ome_p + alphap * kpa(-1) + (1 - alphap) * log(exp(np)));
+// Equation 16
+0 = yca - (log(Abar) + ome_p * (1 - alphac) + alphac * kca(-1) + (1 - alphac) * (log(exp(nc)) + argp));
+// Equation 17
+0 = w_var - w * exp(phi_o_s * (vol(-1) - 0));
+// Equation 18
+0 = ya - (1 / (1 - 1 / tau)) * log(w_var * (exp(ypa) ^ (1 - 1 / tau)) + (1 - w_var) * (exp(yca) ^ (1 - 1 / tau)));
+// Equation 19
+0 = p - (w_var / (1 - w_var)) * (exp(ypa - yca) ^ (-(1) / tau));
+// Equation 20
+0 = ptil - (1 / (1 - w_var)) * (exp(yca - ya) ^ (1 / tau));
+// Equation 21
+0 = exp(ya) - (LC + exp(ca) + exp(ipa) + Ic + (p / ptil) * exp(x_p) + exp(s));
+// Equation 22
+0 = exp(gdp) - (exp(ya) - (p / ptil) * exp(x_p));
+// Equation 23
+0 = dgdp - (da(-1) + gdp - gdp(-1));
+// Equation 24
+0 = dya - (da + log(exp(ya) * (ptil / p)) - log(exp(ya(-1)) * (ptil(-1) / p(-1))));
+// Equation 25
+0 = dypa - (da + log(exp(ypa) * p) - log(p(-1) * exp(ypa(-1))));
+// Equation 26
+0 = exp(pgdp) - (exp(ypa) - exp(x_p));
+// Equation 27
+0 = dpgdp - (da(-1) + pgdp - pgdp(-1));
+// Equation 28
+0 = G - (exp(ipa - kpa(-1)) - ((alpha1 / (1 - 1 / xi)) * (exp(ipa - kpa(-1)) ^ (1 - 1 / xi)) + alpha0));
+// Equation 29
+0 = Gprim - (1 - alpha1 * (exp(ipa - kpa(-1)) ^ (-(1) / xi)));
+// Equation 30
+0 = T - (Ic * exp(-(kca(-1))) + gcctrl - ((calpha1 / (1 - 1 / cxi)) * ((Ic * exp(-(kca(-1))) + gcctrl) ^ (1 - 1 / cxi)) + calpha0));
+// Equation 31
+0 = Tprim - (1 - calpha1 * ((Ic * exp(-(kca(-1))) + gcctrl) ^ (-(1) / cxi)));
+// Equation 32
+0 = Gamp - (exp(ipa) / exp(kpa(-1)) - G);
+// Equation 33
+0 = Gampprim - (1 - Gprim);
+// Equation 34
+0 = Gamc - (Ic / exp(kca(-1)) - T);
+// Equation 35
+0 = Gamcprim - (1 - Tprim);
+// Equation 36
+0 = exp(da + kpa) - (exp(ipa) + exp(kpa(-1)) * (1 - deltak) - G * exp(kpa(-1)));
+// Equation 37
+0 = exp(da + kca) - (Ic + exp(kca(-1)) * (1 - deltac) - T * exp(kca(-1)));
+// Equation 38
+0 = qp - ptil / Gampprim;
+// Equation 39
+0 = qc - ptil / Gamcprim;
+// Equation 40
+0 = pqr - qc / qp;
+// Equation 41
+0 = wagep - (exp(ypa) * (((1 - alphap) * ((1 - 1 / tau) * p)) * (1 - xi_p))) / exp(np);
+// Equation 42
+0 = wagepc - wagep / wagec;
+// Equation 43
+0 = wagep / ptil - (dLCdHP + (omega_barp * exp(sla)) * ((exp(np) + omega_barc * exp(nc)) ^ (omega - 1)));
+// Equation 44
+0 = wagec / ptil - (dLCdHG + ((exp(np) + omega_barc * exp(nc)) ^ (omega - 1)) * (exp(sla) * (omega_barp * omega_barc)));
+// Equation 45
+0 = exp(r) - (((1 - xi_p) * (alphap * ((1 - 1 / tau) * p))) * exp(ypa - kpa(-1)) + (1 - deltak) * qp + qp * (Gamp + exp(ipa - kpa(-1)) * -(Gampprim))) / qp(-1);
+// Equation 46
+0 = exp(rc) - (alphac * exp(yca - kca(-1)) + (1 - deltac) * qc + qc * (Gamc + exp(-(kca(-1))) * (Ic * -(Gamcprim)))) / qc(-1);
+// Equation 47
+0 = 1 - exp(mc(1) + r(1));
+// Equation 48
+0 = 1 - exp(mc(1) + rc(1));
+// Equation 49
+0 = wagec - ((1 - alphac) * exp(yca)) / exp(nc);
+// Equation 50
+0 = ptil * D - (exp(ypa) * p - exp(np) * wagep - ptil * exp(ipa) - exp(x_p) * (p * (1 / nu)));
+// Equation 51
+0 = Vexp - (exp(m(1)) * (Vexp(1) + D(1))) * exp(da(1));
+// Equation 52
+0 = VexpK - Vexp / exp(kpa);
+// Equation 53
+0 = ptil * Tax - (exp(yca) - exp(nc) * wagec - ptil * Ic);
+// Equation 54
+0 = Vexpg - exp(da(1)) * (exp(m(1)) * (Vexpg(1) + Tax(1)));
+// Equation 55
+0 = VexpKg - Vexpg / exp(kca);
+// Equation 56
+0 = x_p - ((1 - alphap) * log(exp(np)) + alphap * kpa(-1) + (1 - alphap) * ome_p + (1 / (1 - xi_p)) * log(((1 - 1 / tau) * (xi_p * nu)) / (1 - xi_p / tau)));
+// Equation 57
+0 = pi_p - (x_p + log(1 / nu - 1) + log(p));
+// Equation 58
+0 = exp(v_p) - (exp(pi_p) + (1 - phi_p) * exp(mc(1) + v_p(1)));
+// Equation 59
+0 = exp(rpatent) - (exp(v_p) * (1 - phi_p)) / (exp(v_p(-1)) - exp(pi_p(-1)));
+// Equation 60
+0 = exp(da) - (1 + exp(s + vtheta) - phi_p);
+// Equation 61
+0 = vtheta - (log(chi) + s * (eta - 1));
+// Equation 62
+0 = ptil * exp(s) - exp(mc(1) + v_p(1)) * (exp(da) - (1 - phi_p));
+// Equation 63
+0 = rrnd - log((exp(v_p) * (exp(da(-1)) - (1 - phi_p))) / (ptil(-1) * exp(s(-1))));
+// Equation 64
+0 = ome_p - ((1 - rho) * ome_p_bar + rho * ome_p(-1) + exp(vol(-1)) * ea);
+// Equation 65
+0 = vol - (vol(-1) * rhovol + ea * con_shocka + con_shockx * (da - da(-1)) + es);
+// Equation 66
+0 = dtfp - (exp(vol(-1)) * ea + da(-1) + (rho - 1) * (ome_p(-1) - ome_p_bar));
+// Equation 67
+0 = x - (da + (rho - 1) * (ome_p - ome_p_bar));
+// Equation 68
+0 = argp - ((1 - rhoar) * argp(-1) + (1 - rhoar) * (mu - da(-1)) + rhoar * arc);
+// Equation 69
+0 = dc - (da(-1) + ca - ca(-1));
+// Equation 70
+0 = kratio - exp(kca) / (exp(kpa) + exp(kca));
+// Equation 71
+0 = dyp - (da(-1) + ypa - ypa(-1));
+// Equation 72
+0 = dip - (da(-1) + ipa - ipa(-1));
+// Equation 73
+0 = ds - (da(-1) + s - s(-1));
+// Equation 74
+0 = dyc - (da(-1) + yca - yca(-1));
+// Equation 75
+0 = igitot - Ic / (exp(s) + exp(ipa) + Ic);
+// Equation 76
+0 = dy - (da(-1) + ya - ya(-1));
+// Equation 77
+0 = tyg - (da(-1) + yca + ypa - (yca(-1) + ypa(-1)));
+// Equation 78
+0 = titot - log(exp(da(-1)) * ((exp(s) + exp(ipa) + Ic) / (exp(s(-1)) + exp(ipa(-1)) + Ic(-1))));
+// Equation 79
+0 = dyvp - (da(-1) + log((exp(ypa) * p) / (p(-1) * exp(ypa(-1)))));
+// Equation 80
+0 = iyp - (ipa - ya);
+// Equation 81
+0 = ia - log(exp(ipa) + Ic);
+// Equation 82
+0 = Iyg - Ic / exp(ya);
+// Equation 83
+0 = 1 / exp(rf) - exp(m(1));
+// Equation 84
+0 = exr - (log(((exp(ya - yca) ^ (1 / tau)) * exp(r)) / (exp(ya(-1) - yca(-1)) ^ (1 / tau))) - rf(-1));
+// Equation 85
+0 = exr_G - (log(((exp(ya - yca) ^ (1 / tau)) * exp(rc)) / (exp(ya(-1) - yca(-1)) ^ (1 / tau))) - rf(-1));
+// Equation 86
+0 = exrpatent - (rpatent - rf(-1));
+// Equation 87
+0 = exrrnd - (rrnd - rf(-1));
+// Equation 88
+0 = r_H - log((exp(r) * (exp(kpa(-1)) * qp(-1)) + exp(v_p(-1)) * exp(rrnd)) / (exp(v_p(-1)) + exp(kpa(-1)) * qp(-1)));
+// Equation 89
+0 = exrr_H - (r_H - rf(-1));
+// Equation 90
+0 = coeff1 - (exp(kpa(-1)) * qp(-1)) / (exp(v_p(-1)) + exp(kpa(-1)) * qp(-1));
+// Equation 91
+0 = coeff2 - exp(v_p(-1)) / (exp(v_p(-1)) + exp(kpa(-1)) * qp(-1));
+// Equation 92
+0 = r_H_patent - log((exp(r) * (exp(kpa(-1)) * qp(-1)) + exp(rpatent) * exp(v_p(-1))) / (exp(v_p(-1)) + exp(kpa(-1)) * qp(-1)));
+// Equation 93
+0 = exrr_H_patent - (r_H_patent - rf(-1));
+// Equation 94
+0 = Er - r(1);
+// Equation 95
+0 = Errnd - rrnd(1);
+// Equation 96
+0 = Erc - rc(1);
+// Equation 97
+0 = Er_H_patent - r_H_patent(1);
+end;
+initval;
+EV=597.8296281042532;
+G=0;
+Gprim=0;
+T=0;
+Tprim=0;
+Gamp=0.015202013255;
+Gampprim=1;
+Gamc=0.015202013255;
+Gamcprim=1;
+dc=0.000201992854;
+dyp=0.000201992854;
+dyc=0.000201992854;
+dyvp=0.000201992854;
+dip=0.000201992854;
+igitot=0.121245037199;
+exr=0;
+exr_G=0;
+tyg=0.000201992854;
+titot=0.000201992854;
+gammav=12;
+dy=0.000201992854;
+pqr=1;
+wagep=1.981152147154;
+wagec=0.756338292251;
+iyp=-2.527738685549;
+ia=-1.633524508886;
+dtc=0.000201992854;
+np=0;
+nc=0;
+ntotal=0.69314718056;
+npnt=0.5;
+ncnt=0.5;
+LC=0;
+dLCdHP=0;
+dLCdHG=0;
+wagepc=2.619399503438;
+w_var=0.8;
+x_p=-0.711816018998;
+vtheta=-1.826208241967;
+kratio=0.276288912937;
+ds=0.000201992854;
+x=0.000201992854;
+dtfp=0.000201992854;
+dgdp=0.000201992854;
+rpatent=0.005151673256;
+exrpatent=0;
+VexpK=-2.884088;
+exrrnd=0;
+Iyg=0.030480021492;
+VexpKg=1.000202;
+dpgdp=0.000201992854;
+dypa=0.000201992854;
+dya=0.000201992854;
+r_H=0.005151673256;
+exrr_H=0;
+exrr_H_patent=0;
+coeff1=0.598226;
+coeff2=0.401774;
+Er=0.005151673256;
+Errnd=0.005151673256;
+Erc=0.005151673256;
+Er_H_patent=0.005151673256;
+argp=-0.4322;
+ev=6.393305810522412;
+ca=-0.06199980525;
+ypa=0.668831964822;
+yca=0.077408417571;
+ya=0.570851159406;
+kpa=2.229439882739;
+kca=1.266494725237;
+ipa=-1.956887526143;
+Ic=0.053942712043;
+qp=4.530124234529;
+qc=4.530124234529;
+p=3.553772273862;
+ptil=4.530124234529;
+rf=0.005151673256;
+vol=0;
+tca=-0.6217092008540001;
+sla=0;
+ome_p=1.895007036615;
+pi_p=0.239524023347;
+s=-1.387629961411;
+gdp=0.325548234057;
+pgdp=0.379260659515;
+da=0.000201992854;
+v_p=3.342109279073;
+ut=-0.581411611991956;
+m=-0.005151673256;
+mc=-0.005151673256;
+r=0.005151673256;
+rc=0.005151673256;
+D=-0.133013;
+Vexp=-26.806614;
+rrnd=0.005151673256;
+Tax=0.017611;
+Vexpg=3.54911;
+r_H_patent=0.005151673256;
+end;
