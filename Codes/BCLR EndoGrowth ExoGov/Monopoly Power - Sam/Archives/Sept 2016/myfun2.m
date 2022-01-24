@@ -1,0 +1,30 @@
+function F = myfun2(x, mu, rho, beta, psi, gamma, Lss, alphac, alphap, deltak, deltac, xi, tau, arc, w, Gprimss, Gss, philev)
+F = [(x(1)-(exp((x(2) + x(3))*( 1 - gamma ))));
+(exp(x(4))-(x(1)));
+(x(2)-((1/(1-1/psi))*log((1-beta)*exp(x(5)*(1-1/psi))+beta*exp((1-1/psi)/(1-gamma)*x(4)))));
+%(x(5) - (x(7)*x(6)+(1-x(7))*(less-x(3))));
+(x(24) - (1/(1-1/tau)*log(w*(exp(x(6)))^(1-1/tau)+(1-w)*(exp(x(7)))^(1-1/tau))));
+(x(6) - (alphap*(x(8)-x(3)) + (1-alphap)*log(1-Lss)));
+(x(7) - (alphac*(x(9)-x(3))+ (1-alphac)*(log(1-Lss)+arc)));
+(x(25) - (w/(1-w)*(exp(x(6)-x(7)))^(-1/tau)));
+(x(26) - (1/(1-w)*(exp(x(7)-x(24)))^(1/tau)));
+
+(exp(x(24))- (exp(x(5)) + exp(x(10))+exp(x(11))));
+(Gss - (exp(x(10)-x(8) + x(3))-(x(12)/(1-1/xi)*(exp(x(10)-x(8)+x(3)))^(1-1/xi) + x(13))));
+(Gprimss - (1-x(12)*exp(x(10)-x(8)+x(3))^(-1/xi)));
+(exp(x(8)+x(3)) -( (1-deltak)*exp(x(8))+exp(x(10)+x(3))-Gss*exp(x(8))));
+(exp(x(9)+x(3))-((1-deltac)*exp(x(9))+exp(x(11)+x(3))));
+(x(14) - (log(beta)+(-1/psi)*x(15)+(1/psi-gamma)*(x(2)+x(3)-(1/(1-gamma))*x(4))));
+(x(16) - (x(26)/(1-Gprimss)));
+(exp(x(17)) - (((1-1/tau)*x(25)*alphap*exp(x(6) - x(8)+x(3))+x(16)*(1-deltak)+x(16)*(Gprimss*exp(x(10)-x(9)+x(3))-Gss))/x(16)));
+(1-( exp(x(14) + x(17))));
+(exp(x(23))-(alphac*exp(x(7)-x(9)+x(3))+x(16)*(1-deltac))/x(16));
+(1-( exp(x(14) + x(23))));
+%(((1-x(7))/x(7)*exp(1/xil*(x(6)))*exp((-1/xil)*less))-((1-alphap)*exp(x(8))/(1-exp(less))));
+(x(3) - (mu + x(18)));
+(x(18) - (rho*x(18)));
+(x(15) - (x(5) - x(5) + x(3)));
+(x(19) - (x(6) - x(6) + x(3)));
+(x(20) -( x(10) - x(10) + x(3)));
+(1/exp(x(22)) - (exp(x(14))));
+(x(21) - (philev*(exp(x(17))-exp(x(22)))));];
